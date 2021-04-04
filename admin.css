@@ -1,0 +1,36 @@
+h1{
+    padding:20px;
+    border:0;
+    color: white;
+    text-align: center;
+    background-color:rgb(119, 32, 32);
+    margin-bottom: 0%;
+}
+
+.left{
+    float:left;
+    height:630px;
+    width: 70%;
+}
+
+.options{
+    margin-top: 50px;
+    margin-left: 15%;
+}
+.dropdown button{
+    margin-left: 10%;
+    margin-top:10px;
+    width: 65%;
+    background-color:rgb(2, 117, 216);
+}
+
+.rightmine{
+    height:570px;
+    width:230px;
+    background-image:url("https://th.bing.com/th/id/OIP.wh9oa4EsNe8p1Mib9GqJCAHaE7?w=233&h=180&c=7&o=5&dpr=1.1&pid=1.7");
+    background-size: cover;
+    background-repeat: no-repeat;
+    float:right;
+    margin:0;
+    
+}
