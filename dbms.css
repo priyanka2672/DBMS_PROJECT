@@ -1,0 +1,23 @@
+.navbar {
+    height: 55px;
+    background-color: rgb(119, 32, 32);
+}
+.leftmine{
+    height:550px;
+    width:600px;
+    float:left;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-size: 125px;
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    
+}
+.rightmine{
+    height:600px;
+    width:320px;
+    background-image:url("https://th.bing.com/th/id/OIP.PSmSpJTkQaalGUz2BnQjbgAAAA?pid=ImgDet&rs=1");
+    background-size: cover;
+    background-repeat: no-repeat;
+    float:right;
+    
+}
