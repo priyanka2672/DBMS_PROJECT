@@ -87,14 +87,7 @@ mysqli_close($conn);
             <input type="text" class="form-control" name="Address">
           </div>
         </div>
-        <div class="form-group">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
+        
         <button type="submit" name ="submit"class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc()">Add Data</button>
     </form>
     <script>

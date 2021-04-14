@@ -10,12 +10,12 @@ if($conn === false)
 if(isset($_POST['submitmy']))
  {
   // Escape user inputs for security
-  $artist_id =  $_POST['artist_id'];
+  $article_id =  $_POST['article_id'];
   $attr = $_POST['attribute'];
   $new_val = $_POST['new_val'];
           
  // Attempt insert query execution
-$sql = "UPDATE `artist` SET $attr = '$new_val' WHERE Artist_ID = '$artist_id'";
+$sql = "UPDATE `article` SET $attr = '$new_val' WHERE Article_ID = '$article_id'";
 if( ! mysqli_query($conn, $sql))
 {
   echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
@@ -34,7 +34,8 @@ mysqli_close($conn);
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="functions.js"></script>
-    <title>Artist Modify</title>
+    
+    <title>Article Modify</title>
     <style>
         h1{
             padding:20px;
@@ -65,21 +66,19 @@ mysqli_close($conn);
   </head>
   <body>
     <h1>Enter the necessary details</h1>
-    <form name="artist_modify" id="artist_modify" method="POST" action="">
+    <form  method="POST" action="">
         <div class="form-row">
           <div class="form-group col-md-6 myclass">
-            <label for="artist_id">Artist ID</label>
-            <input type="text" class="form-control" id="artist_id" name="artist_id" placeholder="Artist Id" required>
+            <label >Article ID</label>
+            <input type="text" class="form-control" id="article_id" name="article_id" placeholder="Article Id" required>
           </div>
           <div class="form-group col-md-6 myclass">
                   <label> Enter the Attribute to be changed</label>
                   <select name="attribute" class="form-control">
                       <option selected>Choose...</option>
-                      <option value="Artist_fname">First Name</option>
-                      <option value="Artist_lname">Last Name</option>
-                      <option value="Article_style">Article_style</option>
-                      <option value="Phone">Phone</option>
-                      <option value="Address">Address</option>
+                      <option value="Artist_style">Article_style</option>
+                      <option value="Price">Price In Rupees</option>
+                      <option value="Sold">Sold</option>
                   </select>
           </div>
         </div>
@@ -92,8 +91,6 @@ mysqli_close($conn);
                       
         <button type="submit" name="submitmy" class="btn" style="background-color:rgb(119, 32, 32)" onclick="myfunc6()">Submit</button>
       </form>
-       
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
