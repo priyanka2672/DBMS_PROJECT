@@ -1,3 +1,37 @@
+<?php
+/* Attempt MySQL server connection.*/
+$conn = mysqli_connect("localhost", "root", "", "art_gallery");
+ 
+// Check connection
+if($conn === false)
+{
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ if(isset($_POST['submit']))
+ {
+// Escape user inputs for security
+$customer_id =  $_POST['customer_id'];
+$bill_amount= $_POST['bill_amount'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+
+  $sql = "INSERT INTO customer VALUES ( '$customer_id','$bill_amount', '$phone', '$address')";
+
+// Attempt insert query execution
+
+if(mysqli_query($conn, $sql))
+{
+    echo '<script type="text/javascript"> alert("Record successfully inserted") </script>';
+} 
+else
+{
+  echo '<script type="text/javascript"> alert("Could not insert! Try again!") </script>';   
+}
+ 
+// Close connection
+mysqli_close($conn);
+}
+?> 
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,51 +41,30 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="customer.css">
     <title>Customer Data</title>
-    <style>
-        h1{
-            padding:20px;
-            border:0;
-            color: white;
-            text-align: center;
-            background-color:rgb(119, 32, 32);
-            margin-bottom: 0%;
-            }
-        form{
-            margin:20px 40px 20px 40px;
-        }
-        button{
-            display:block;
-            margin-left:30%;
-            margin-top:50px;
-            width:500px;     
-            color:white;
-            font-weight:bold;      
-        }
-    </style>
   </head>
   <body>
     <h1>Enter the necessary details</h1>
-    <form name="cutomer_add">
+    <form name="customer_add" method="POST" action="">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="customer_id">Customer ID</label>
-            <input type="text" class="form-control" id="customer_id" placeholder="Customer Id" required>
+            <input type="number" class="form-control" name="customer_id" placeholder="Customer Id" required>
           </div>
           <div class="form-group col-md-6">
             <label for="customer_amt">Amount Invested</label>
-            <input type="text" class="form-control" id="customer_amt" placeholder="Amount in Rupees">
+            <input type="number" class="form-control" name="bill_amount" placeholder="Amount in Rupees">
           </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="customer_address">Address</label>
-              <input type="text" class="form-control" id="customer_address">
+              <label for="customer_phone">Phone Number</label>
+              <input type="number" class="form-control" name="phone" placeholder="i.e +91...">
             </div>
             <div class="form-group col-md-6">
-              <label for="customer_phone">Phone Number</label>
-              <input type="number" class="form-control" id="customer_phone" placeholder="i.e +91...">
+              <label for="customer_address">Address</label>
+              <input type="text" class="form-control" name="address">
             </div>
         </div>
         
