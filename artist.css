@@ -1,0 +1,19 @@
+        h1{
+            padding:20px;
+            border:0;
+            color: white;
+            text-align: center;
+            background-color:rgb(119, 32, 32);
+            margin-bottom: 0%;
+            }
+        form{
+            margin:20px 40px 20px 40px;
+        }
+        button{
+            display:block;
+            margin-left:30%;
+            width:500px;     
+            color:white;
+            font-weight:bold;      
+        }
+    
