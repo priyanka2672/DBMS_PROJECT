@@ -1,0 +1,21 @@
+#myTab {
+    padding:20px 20px 0px 20px;
+    font-weight: bolder;
+    background-color: rgb(119, 32, 32);
+    text-decoration: none;
+    color:rgb(255,255,255);  
+}
+
+#myTab :active{
+    color:black;
+}
+#myTab :hover{
+    color:rgb(119,32,32);
+    background-color: rgb(255,255,255);
+}
+.mytable{
+    margin:20px auto;
+    padding-top:20px;
+    border-radius: 10px;
+    max-width:1000px;
+}
