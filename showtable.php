@@ -71,7 +71,7 @@
                     <th scope="col">Event_ID</th>
                     <th scope="col">Article Style</th>
                     <th scope="col">Article Title</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Price (in rupees)</th>
                     <th scope="col">Date of Arrival</th>
                     <th scope="col">Sold</th>
                   </tr>
@@ -84,12 +84,12 @@
                         die("Connection failed:". $conn-> connect_error);
                       }
 
-                      $sql = "SELECT * FROM artist";
+                      $sql = "SELECT * FROM article";
                       $res = $conn->query($sql);
 
                       if($res->num_rows >0){
                         while($row = $res-> fetch_assoc()){
-                          echo "<tr><td>". $row["Artist_ID"]."</td><td>". $row["Artist_fname"]."</td><td>". $row["Artist_lname"]. "</td><td>". $row["Article_style"]. "</td><td>". $row["Phone"] ."</td><td>" . $row["Address"]. "</td><td>";
+                          echo "<tr><td>". $row["Article_ID"]."</td><td>". $row["Artist_ID"]."</td><td>". $row["Event_ID"]. "</td><td>". $row["Article_style"]. "</td><td>". $row["Article_title"]. "</td><td>". $row["Price"] ."</td><td>" . $row["Date_Arrival"]. "</td><td>". $row["sold"]. "</td><td>";
                         }
                         echo "</table>";
                       }
@@ -100,7 +100,38 @@
                 ?>
         </div>
         <div class="tab-pane fade" id="customer" role="tabpanel" aria-labelledby="contact-tab">
+        <table class="table table-hover table-dark mytable">
+                <thead>
+                  <tr>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Customer Password</th>
+                    <th scope="col">Bill Amount</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                  </tr>
+                </thead>
+                <?php
 
+                      $conn = mysqli_connect("localhost","root","","art_gallery");
+
+                      if($conn-> connect_error){
+                        die("Connection failed:". $conn-> connect_error);
+                      }
+
+                      $sql = "SELECT * FROM customer";
+                      $res = $conn->query($sql);
+
+                      if($res->num_rows >0){
+                        while($row = $res-> fetch_assoc()){
+                          echo "<tr><td>". $row["Customer_ID"]."</td><td>". $row["Customer_pass"]."</td><td>". $row["Bill_amount"]. "</td><td>". $row["Phone"] ."</td><td>" . $row["Address"]. "</td><td>";
+                        }
+                        echo "</table>";
+                      }
+                      else{
+                        echo "lol";
+                      }
+                      $conn->close();
+                ?>
         </div>
         <div class="tab-pane fade" id="event" role="tabpanel" aria-labelledby="contact-tab">
             
