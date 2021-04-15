@@ -134,7 +134,39 @@
                 ?>
         </div>
         <div class="tab-pane fade" id="event" role="tabpanel" aria-labelledby="contact-tab">
-            
+        <table class="table table-hover table-dark mytable">
+                <thead>
+                  <tr>
+                    <th scope="col">Event ID</th>
+                    <th scope="col">Article ID</th>
+                    <th scope="col">Artist ID</th>
+                    <th scope="col">Event Description</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Event Time</th>
+                  </tr>
+                </thead>
+                <?php
+
+                      $conn = mysqli_connect("localhost","root","","art_gallery");
+
+                      if($conn-> connect_error){
+                        die("Connection failed:". $conn-> connect_error);
+                      }
+
+                      $sql = "SELECT * FROM `event`";
+                      $res = $conn->query($sql);
+
+                      if($res->num_rows >0){
+                        while($row = $res-> fetch_assoc()){
+                          echo "<tr><td>". $row["Event_ID"]."</td><td>". $row["Article_ID"]."</td><td>". $row["Artist_ID"]. "</td><td>". $row["Description"]. "</td><td>". $row["Event_Date"] ."</td><td>" . $row["Event_time"]. "</td><td>";
+                        }
+                        echo "</table>";
+                      }
+                      else{
+                        echo "lol";
+                      }
+                      $conn->close();
+                ?>
         </div>
       </div>
 
