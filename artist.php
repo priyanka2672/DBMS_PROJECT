@@ -51,7 +51,7 @@ mysqli_close($conn);
     <form name="artist_add" method="POST" action="">
         <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="fname">ID Name</label>
+            <label for="artist_id">Artist ID</label>
             <input type="number" class="form-control" name="artist_id" placeholder="First Name">
           </div>
           <div class="form-group col-md-6">
@@ -87,14 +87,7 @@ mysqli_close($conn);
             <input type="text" class="form-control" name="Address">
           </div>
         </div>
-        <div class="form-group">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
+        
         <button type="submit" name ="submit"class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc()">Add Data</button>
     </form>
     <script>

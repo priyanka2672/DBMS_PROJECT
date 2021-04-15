@@ -42,6 +42,7 @@ mysqli_close($conn);
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="customer.css">
+    <script src="functions.js"></script>
     <title>Customer Data</title>
   </head>
   <body>
@@ -70,16 +71,7 @@ mysqli_close($conn);
         
         <button type="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc4()">Submit</button>
     </form>
-    <script>
-        function myfunc4() {
-            var x = document.forms["customer_add"]["customer_id"].value;
-            if (x == "") {
-                alert("Customer ID must be filled out");
-                return false;
-            }
-        }
-    </script>
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
