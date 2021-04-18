@@ -11,11 +11,12 @@ if($conn === false)
  {
 // Escape user inputs for security
 $customer_id =  $_POST['customer_id'];
+$cust_pass = $_POST['Customer_pass'];
 $bill_amount= $_POST['bill_amount'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 
-  $sql = "INSERT INTO customer VALUES ( '$customer_id','$bill_amount', '$phone', '$address')";
+  $sql = "INSERT INTO customer VALUES ( '$customer_id','$cust_pass','$bill_amount', '$phone', '$address')";
 
 // Attempt insert query execution
 
@@ -49,11 +50,15 @@ mysqli_close($conn);
     <h1>Enter the necessary details</h1>
     <form name="customer_add" method="POST" action="">
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="customer_id">Customer ID</label>
             <input type="number" class="form-control" name="customer_id" placeholder="Customer Id" required>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
+            <label for="cust_pass">Customer Password</label>
+            <input type="text" class="form-control" name="Customer_pass" placeholder="Customer Password" required>
+          </div>
+          <div class="form-group col-md-4">
             <label for="customer_amt">Amount Invested</label>
             <input type="number" class="form-control" name="bill_amount" placeholder="Amount in Rupees">
           </div>
@@ -69,7 +74,7 @@ mysqli_close($conn);
             </div>
         </div>
         
-        <button type="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc4()">Submit</button>
+        <button type="submit" name="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc4()">Submit</button>
     </form>
     
     <!-- Optional JavaScript -->
