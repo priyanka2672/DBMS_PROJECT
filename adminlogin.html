@@ -9,31 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap-grid.min.css" >
     <link rel="stylesheet" href="bootstrap.min.css" >
+    <link rel="stylesheet" href="adminlogin.css">
        
     <title>Admin Login</title>
 
-    <style>
-      body{
-        background-image: url(OIP.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-      .adminsign-in{
-        margin-top:60px;
-        margin-left:24%;
-        display:block;
-      }
-      .admin-card{
-        border-radius: 10%;
-        width:50%;
-        padding:30px;
-        box-shadow: 5px 5px 10px rgb(0,0,0,0.5);
-      }
-      .admin-button{
-        background-color: rgb(119, 32, 32);
-      }
-    </style>
-        
   </head>
   <body >
       <div class="container adminsign-in">
@@ -43,15 +22,15 @@
                 <div class="card admin-card">
                     <div class="card-body">
                       
-                      <form class="admin-form" method="POST">
+                      <form class="admin-form" method="POST" onsubmit = "return validation()" name="f1" action="adminlogin.php">
                         <h1 style="color:rgb(119, 32, 32)">ADMIN LOGIN</h1><br>
                         <div class="form-group">
                           <label for="username">User Name</label>
-                          <input type="text" class="form-control" id="admin_username" aria-describedby="username" placeholder="Enter username">
+                          <input type="text" class="form-control" name="admin_id" id="admin_id" aria-describedby="username" placeholder="Enter username">
                         </div>
                         <div class="form-group">
                           <label for="Password">Password</label>
-                          <input type="password" class="form-control" id="Password" placeholder="Password">
+                          <input type="password" class="form-control" name="admin_pass" id="admin_pass" placeholder="Password">
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-block admin-button">Submit</button>
@@ -63,6 +42,31 @@
               <div class="col"></div>
           </div>
       </div>
+      <script>  
+            function validation()  
+            {  
+                var id=document.f1.admin_id.value;  
+                var ps=document.f1.admin_pass.value;  
+                if(id.length=="" && ps.length=="") 
+                {  
+                    alert("User Name and Password fields are empty");  
+                    return false;  
+                }  
+                else  
+                {  
+                    if(id.length=="") 
+                    {  
+                        alert("User Name is empty");  
+                        return false;  
+                    }   
+                    if (ps.length=="")
+                   {  
+                    alert("Password field is empty");  
+                    return false;  
+                    }  
+                }                             
+            }  
+        </script>  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

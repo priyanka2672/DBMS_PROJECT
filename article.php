@@ -15,17 +15,17 @@ $Artist_ID = $_POST['Artist_ID'];
 $Event_ID =$_POST['Event_ID'];
 $Article_style = $_POST['Article_style'];
 $Price =  $_POST['Price'];
-$Date_Arrival = date('Y-m-d', (strtotime($_POST['Date_Arrival'])));
 $Sold =  $_POST['Sold'];
 
 
-  $sql = "INSERT INTO article  VALUES ( '$Article_ID','$Artist_ID', '$Event_ID', '$Article_style', '$Price','$Date_Arrival', '$Sold')";
+  $sql = "INSERT INTO article  VALUES ( '$Article_ID','$Artist_ID', '$Event_ID', '$Article_style', '$Price', '$Sold')";
 
 // Attempt insert query execution
 
 if(mysqli_query($conn, $sql))
 {
-    echo '<script type="text/javascript"> alert("Record successfully inserted") </script>';
+  echo 'done';  
+  echo '<script type="text/javascript"> alert("Record successfully inserted") </script>';
 } 
 else
 {
@@ -82,10 +82,6 @@ mysqli_close($conn);
           <div class="form-group col-md-4">
             <label for="article_price">Price</label>
             <input type="number" class="form-control" name="Price">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="article_doa">Date of Arrival</label>
-            <input type="date" class="form-control" name="Date_Arrival">
           </div>
           <div class="form-group col-md-4">
              <label for="article_sold">SOLD</label>
