@@ -7,19 +7,18 @@ if($conn === false)
 {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
- if(isset($_POST['submit']))
- {
+if(isset($_POST['submit'])){
 // Escape user inputs for security
 $Article_ID =  $_POST['Article_ID'];
 $Artist_ID = $_POST['Artist_ID'];
 $Event_ID =$_POST['Event_ID'];
 $Article_style = $_POST['Article_style'];
+$Article_title = $_POST['Article_title'];
 $Price =  $_POST['Price'];
 $Date_Arrival = date('Y-m-d', (strtotime($_POST['Date_Arrival'])));
-$Sold =  $_POST['Sold'];
+$sold =  $_POST['sold'];
 
-
-  $sql = "INSERT INTO article  VALUES ( '$Article_ID','$Artist_ID', '$Event_ID', '$Article_style', '$Price','$Date_Arrival', '$Sold')";
+$sql = "INSERT INTO article VALUES ('$Article_ID','$Artist_ID', '$Event_ID', '$Article_style','$Article_title', '$Price','$Date_Arrival', '$sold')";
 
 // Attempt insert query execution
 
@@ -70,7 +69,6 @@ mysqli_close($conn);
             <div class="form-group col-md-6">
                 <label for="articlestyle">Article Style</label>
                 <select name="Article_style" class="form-control">
-                    <option selected>Choose...</option>
                     <option value="Painting">Painting</option>
                     <option value="Sketching">Sketching</option>
                     <option value="Sculptures">Sculptures</option>
@@ -89,15 +87,21 @@ mysqli_close($conn);
             <input type="date" class="form-control" name="Date_Arrival">
           </div>
           <div class="form-group col-md-4">
-             <label for="article_sold">SOLD</label>
-                <select name="Sold" class="form-control">
-                    <option selected>Choose...</option>
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
+            <label for="article_title">Artist Title</label>
+            <input type="text" class="form-control" name="Article_title" placeholder="Article Title">
+          </div>
+        </div>
+          <div class="form-row">
+          <div class="form-group col-md-4">
+             <label for="sold">SOLD</label>
+                <select name="sold" class="form-control">
+                    <option value="1">YES</option>
+                    <option value="0">NO</option>
                 </select>
             </div>
         </div>
-        <button type="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc1()">Submit</button>
+</div>
+        <button type="submit" name="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc1()">Submit</button>
     </form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
