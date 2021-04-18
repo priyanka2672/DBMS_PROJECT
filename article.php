@@ -1,7 +1,7 @@
 <?php
 /* Attempt MySQL server connection.*/
 $conn = mysqli_connect("localhost", "root", "", "art_gallery");
- 
+ //comment
 // Check connection
 if($conn === false)
 {
