@@ -11,12 +11,13 @@ if($conn === false)
  {
 // Escape user inputs for security
 $customer_id =  $_POST['customer_id'];
-$cust_pass = $_POST['Customer_pass'];
+$username =  $_POST['username'];
+$pass = $_POST['pass'];
 $bill_amount= $_POST['bill_amount'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 
-  $sql = "INSERT INTO customer VALUES ( '$customer_id','$cust_pass','$bill_amount', '$phone', '$address')";
+  $sql = "INSERT INTO customer VALUES ( '$customer_id', '$username', '$pass','$bill_amount', '$phone', '$address')";
 
 // Attempt insert query execution
 
@@ -55,15 +56,19 @@ mysqli_close($conn);
             <input type="number" class="form-control" name="customer_id" placeholder="Customer Id" required>
           </div>
           <div class="form-group col-md-4">
-            <label for="cust_pass">Customer Password</label>
-            <input type="text" class="form-control" name="Customer_pass" placeholder="Customer Password" required>
+            <label for="cust_username">Create Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Enter Username" required>
           </div>
+          <div class="form-group col-md-4">
+            <label for="cust_pass">Create Password</label>
+            <input type="text" class="form-control" name="pass" placeholder="Enter Password" required>
+          </div>
+        </div>
+        <div class="form-row">
           <div class="form-group col-md-4">
             <label for="customer_amt">Amount Invested</label>
             <input type="number" class="form-control" name="bill_amount" placeholder="Amount in Rupees">
           </div>
-        </div>
-        <div class="form-row">
             <div class="form-group col-md-6">
               <label for="customer_phone">Phone Number</label>
               <input type="number" class="form-control" name="phone" placeholder="i.e +91...">
