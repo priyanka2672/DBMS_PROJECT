@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap-grid.min.css" >
+    <link rel="stylesheet" href="bootstrap.min.css" >
+    <link rel="stylesheet" href="customerlogin.css">
+       
+    <title>Customer Login</title>
+    
+  </head>
+  <body >
+      <div class="container custsign-in">
+          <div class="row">
+              <div class="col"></div>
+              <div class="col-8">
+                <div class="card cust-card">
+                    <div class="card-body">
+                      
+                      <form class="cust-form" method="POST" onsubmit = "return validation()" name="f2" action="customerlogin.php">
+                        <h1 style="color:rgb(119, 32, 32);text-align: center">CUSTOMER LOGIN</h1><br>
+                        <div class="form-group">
+                          <label for="username">User Name</label>
+                          <input type="text" class="form-control" name="username" id="username" aria-describedby="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                          <label for="Password">Password</label>
+                          <input type="password" class="form-control" name="pass" id="pass" placeholder="Password">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block cust-button">Submit</button>
+                      </form>
+
+                    </div>
+                  </div>
+              </div>
+              <div class="col"></div>
+          </div>
+      </div>
+      <script>  
+        function validation()  
+        {  
+            var id=document.f2.username.value;  
+            var ps=document.f2.pass.value;  
+            if(id.length=="" && ps.length=="") 
+            {  
+                alert("User Name and Password fields are empty");  
+                return false;  
+            }  
+            else  
+            {  
+                if(id.length=="") 
+                {  
+                    alert("User Name is empty");  
+                    return false;  
+                }   
+                if (ps.length=="")
+               {  
+                alert("Password field is empty");  
+                return false;  
+                }  
+            }                             
+        }  
+    </script>  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="bootstrap.min.js"></script>
+  </body>
+</html>

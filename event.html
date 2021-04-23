@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <script src="functions.js"></script>
     <title>Event Data</title>
     <style>
         h1{
@@ -64,17 +64,9 @@
             <input type="text" class="form-control" id="event_descrip">
           </div>
         </div>
-        <button type="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc3()">Add Data</button>
+        <button type="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc3()">Submit</button>
     </form>
-    <script>
-        function myfunc3() {
-            var x = document.forms["event_add"]["event_id"].value;
-            if (x == "") {
-                alert("Event ID must be filled out");
-                return false;
-            }
-        }
-    </script>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
