@@ -18,7 +18,7 @@ $Phone =  $_POST['Phone'];
 $Address = $_POST['Address'];
  
 // Attempt insert query execution
-$sql = "INSERT INTO artist  VALUES ( '$artist_id','$artist_fname', '$artist_lname', '$article_style', '$Phone',' $Address')";
+$sql = "INSERT INTO 'artist'  VALUES ( '$artist_id','$artist_fname', '$artist_lname', '$article_style', '$Phone','$Address');";
 if(mysqli_query($conn, $sql))
 {
   echo '<script type="text/javascript"> alert("Record successfully inserted") </script>';
