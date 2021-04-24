@@ -25,6 +25,9 @@
         <li class="nav-item">
             <a class="nav-link" id="event-tab" data-toggle="tab"  role="tab" href="#event" aria-controls="contact" aria-selected="false">Event Table</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" id="logs-tab" data-toggle="tab"  role="tab" href="#log" aria-controls="contact" aria-selected="false">LOGS Table</a>
+          </li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="artist" role="tabpanel" aria-labelledby="home-tab">
@@ -104,7 +107,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Customer ID</th>
-                    <th scope="col">Username</th>
+                    
                     <th scope="col">Password</th>
                     <th scope="col">Bill Amount</th>
                     <th scope="col">Phone</th>
@@ -124,7 +127,7 @@
 
                       if($res->num_rows >0){
                         while($row = $res-> fetch_assoc()){
-                          echo "<tr><td>". $row["Customer_ID"]."</td><td>". $row["username"]."</td><td>".$row["pass"]."</td><td>". $row["Bill_amount"]. "</td><td>". $row["Phone"] ."</td><td>" . $row["Address"]. "</td><td>";
+                          echo "<tr><td>". $row["Customer_ID"]."</td><td>".$row["Customer_pass"]."</td><td>". $row["Bill_amount"]. "</td><td>". $row["Phone"] ."</td><td>" . $row["Address"]. "</td><td>";
                         }
                         echo "</table>";
                       }
@@ -160,6 +163,40 @@
                       if($res->num_rows >0){
                         while($row = $res-> fetch_assoc()){
                           echo "<tr><td>". $row["Event_ID"]."</td><td>". $row["Article_ID"]."</td><td>". $row["Artist_ID"]. "</td><td>". $row["Description"]. "</td><td>". $row["Event_Date"] ."</td><td>" . $row["Event_time"]. "</td><td>";
+                        }
+                        echo "</table>";
+                      }
+                      else{
+                        echo "lol";
+                      }
+                      $conn->close();
+                ?>
+        </div>
+        <div class="tab-pane fade" id="log" role="tabpanel" aria-labelledby="profile-tab">
+        <table class="table table-hover table-dark mytable">
+                <thead>
+                  <tr>
+                    <th scope="col">Table Name</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Action Performed</th>
+                    <th scope="col">Date & Time</th>
+                                 
+                  </tr>
+                </thead>
+                <?php
+
+                      $conn = mysqli_connect("localhost","root","","art_gallery");
+
+                      if($conn-> connect_error){
+                        die("Connection failed:". $conn-> connect_error);
+                      }
+
+                      $sql = "SELECT * FROM logs";
+                      $res = $conn->query($sql);
+
+                      if($res->num_rows >0){
+                        while($row = $res-> fetch_assoc()){
+                          echo "<tr><td>". $row["Table_Name"]."</td><td>". $row["ID"]."</td><td>". $row["Action"]. "</td><td>". $row["Date_time"]. "</td><td>";
                         }
                         echo "</table>";
                       }
