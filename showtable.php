@@ -107,7 +107,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Customer ID</th>
-                    <th scope="col">Username</th>
+                    
                     <th scope="col">Password</th>
                     <th scope="col">Bill Amount</th>
                     <th scope="col">Phone</th>
@@ -127,7 +127,7 @@
 
                       if($res->num_rows >0){
                         while($row = $res-> fetch_assoc()){
-                          echo "<tr><td>". $row["Customer_ID"]."</td><td>". $row["username"]."</td><td>".$row["pass"]."</td><td>". $row["Bill_amount"]. "</td><td>". $row["Phone"] ."</td><td>" . $row["Address"]. "</td><td>";
+                          echo "<tr><td>". $row["Customer_ID"]."</td><td>".$row["Customer_pass"]."</td><td>". $row["Bill_amount"]. "</td><td>". $row["Phone"] ."</td><td>" . $row["Address"]. "</td><td>";
                         }
                         echo "</table>";
                       }
