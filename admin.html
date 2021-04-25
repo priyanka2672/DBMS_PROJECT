@@ -12,9 +12,15 @@
     <title>Admin</title>
   </head>
   <body>
-    
-      <h1>Welcome, Admin!</h1>
-      
+    <h1>
+      <div class="form-row">
+        <div class="form-group col-md-2"></div>
+        <div class="form-group col-md-8">Welcome,Admin </div>
+        <div class="form-group col-md-2">
+          <a href="index.html" onclick="alert('Successfully Logged out!')"class="btn btn-lg active" style="background-color:rgb(75, 9, 9);color:rgb(255, 255, 255);font-weight:bolder;"role="button" aria-pressed="true">Log Out</a>
+        </div>
+      </div>
+    </h1>
       <div class="left">
         <div class= "options">
           
@@ -53,11 +59,9 @@
               </div>
           </div>
           <div class="dropdown">
-            <button class="btn" type="button" href="showtable.php"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              See Current Database
-            </button>
-            
-        </div>
+            <br><br>
+            <a href="showtable.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">See Current Database</a>
+          </div>
         </div>
       </div>
     <div class="rightmine"></div>
