@@ -10,28 +10,32 @@ if($conn === false)
  if(isset($_POST['submit']))
  {
 // Escape user inputs for security
-$artist_id =  $_POST['artist_id'];
-$artist_fname = $_POST['artist_fname'];
-$artist_lname =$_POST['artist_lname'];
-$article_style = $_POST['article_style'];
-$Phone =  $_POST['Phone'];
-$Address = $_POST['Address'];
- 
+$Article_ID =  $_POST['Article_ID'];
+$Artist_ID = $_POST['Artist_ID'];
+$Event_ID =$_POST['Event_ID'];
+$Article_style = $_POST['Article_style'];
+$Price =  $_POST['Price'];
+$Date_Arrival = date('Y-m-d', (strtotime($_POST['Date_Arrival'])));
+$Sold =  $_POST['Sold'];
+
+
+  $sql = "INSERT INTO article  VALUES ( '$Article_ID','$Artist_ID', '$Event_ID', '$Article_style', '$Price','$Date_Arrival', '$Sold')";
+
 // Attempt insert query execution
-$sql = "INSERT INTO `artist`(`Artist_ID`, `Artist_fname`, `Artist_lname`, `Article_style`, `Phone`, `Address`) VALUES ('$artist_id','$artist_fname','$artist_lname','$article_style','$Phone','$Address')";
+
 if(mysqli_query($conn, $sql))
 {
-  echo '<script type="text/javascript"> alert("Record successfully inserted") </script>';
+    echo '<script type="text/javascript"> alert("Record successfully inserted") </script>';
 } 
 else
 {
-  echo '<script type="text/javascript"> alert("Could not insert! Try again!") </script>'; 
+  echo '<script type="text/javascript"> alert("Could not insert! Try again!") </script>';   
 }
  
 // Close connection
 mysqli_close($conn);
 }
-?>
+?> 
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,32 +45,30 @@ mysqli_close($conn);
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link rel="stylesheet" href="artist.css">
-        
-    <title>Artist Data</title>
-    
+    <link rel="stylesheet" href="artist.css">
+    <title>Article Data</title>
   </head>
   <body>
     <h1>Enter the necessary details</h1>
-    <form name="artist_add" method="POST" action="">
+    <form name="article_add" method="POST", action="">
         <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="artist_id">Artist ID</label>
-            <input type="number" class="form-control" name="artist_id" placeholder="First Name">
+          <div class="form-group col-md-6">
+            <label for="article_id">Article ID</label>
+            <input type="text" class="form-control" name="Article_ID" placeholder="Article Id" required>
           </div>
           <div class="form-group col-md-6">
-            <label for="fname">First Name</label>
-            <input type="text" class="form-control" name="artist_fname" placeholder="First Name">
+            <label for="artist_id">Artist ID</label>
+            <input type="text" class="form-control" name="Artist_ID" placeholder="Artist ID">
           </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="lname">Last Name</label>
-                <input type="text" class="form-control" name="artist_lname" placeholder="Last Name">
+                <label for="event_id">Event ID</label>
+                <input type="text" class="form-control" name="Event_ID" placeholder="Event ID">
             </div>
             <div class="form-group col-md-6">
-                <label for="article_style">Article style</label>
-                <select name="article_style" class="form-control">
+                <label for="articlestyle">Article Style</label>
+                <select name="Article_style" class="form-control">
                     <option selected>Choose...</option>
                     <option value="Painting">Painting</option>
                     <option value="Sketching">Sketching</option>
@@ -75,29 +77,35 @@ mysqli_close($conn);
                     <option value="Contemporary art">Contemporary art</option>
                 </select>
             </div>
-            
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="Phone">Phone Number</label>
-            <input type="number" class="form-control" name="Phone" placeholder="i.e +91...">
+          <div class="form-group col-md-4">
+            <label for="article_price">Price</label>
+            <input type="number" class="form-control" name="Price">
           </div>
-          <div class="form-group col-md-6">
-            <label for="Address">Address</label>
-            <input type="text" class="form-control" name="Address">
+          <div class="form-group col-md-4">
+            <label for="article_doa">Date of Arrival</label>
+            <input type="date" class="form-control" name="Date_Arrival">
           </div>
+          <div class="form-group col-md-4">
+             <label for="article_sold">SOLD</label>
+                <select name="Sold" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="YES">YES</option>
+                    <option value="NO">NO</option>
+                </select>
+            </div>
         </div>
-        
-        <button type="submit" name ="submit"class="btn" style="background-color:rgb(119, 32, 32)" onclick="return myfunc()" >Add Data</button>
+        <button type="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc1()">Submit</button>
     </form>
     <script>
-        function myfunc() {
-            var x = document.forms["artist_add"]["artist_id"].value;
+        function myfunc1() {
+            var x = document.forms["article_add"]["article_id"].value;
             if (x == "") {
-                alert("Artist ID must be filled out");
+                alert("Article ID must be filled out");
                 return false;
             }
-            }
+        }
     </script>
 
     <!-- Optional JavaScript -->
