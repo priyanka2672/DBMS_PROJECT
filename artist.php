@@ -47,7 +47,17 @@ mysqli_close($conn);
     
   </head>
   <body>
-    <h1>Enter the necessary details</h1>
+  <h1>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+        <a href="admin.html" onclick="alert('Successfully Logged out!')"class="btn btn-lg active" style="background-color:rgb(75, 9, 9);color:rgb(255, 255, 255);font-weight:bolder;"role="button" aria-pressed="true">Home</a>
+        </div>
+        <div class="form-group col-md-8">Enter the Necessary Details </div>
+        <div class="form-group col-md-2">
+          <a href="index.html" onclick="alert('Successfully Logged out!')"class="btn btn-lg active" style="background-color:rgb(75, 9, 9);color:rgb(255, 255, 255);font-weight:bolder;"role="button" aria-pressed="true">Log Out</a>
+        </div>
+      </div>
+    </h1>
     <form name="artist_add" method="POST" action="">
         <div class="form-row">
         <div class="form-group col-md-6">
