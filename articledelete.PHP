@@ -57,7 +57,17 @@ if (isset($_POST['article_id'])) {
 </head>
 
 <body>
-    <h1>Enter the necessary details</h1>
+<h1>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+          <a href="admin.html" class="btn btn-lg active" style="background-color:rgb(75, 9, 9);color:rgb(255, 255, 255);font-weight:bolder;"role="button" aria-pressed="true">Home</a>
+          </div>
+          <div class="form-group col-md-8">Enter the Necessary Details </div>
+          <div class="form-group col-md-2">
+            <a href="index.html" onclick="alert('Successfully Logged out!')"class="btn btn-lg active" style="background-color:rgb(75, 9, 9);color:rgb(255, 255, 255);font-weight:bolder;"role="button" aria-pressed="true">Log Out</a>
+          </div>
+        </div>
+      </h1>
     <form>
         <div class="form-group">
             <label for="article_id"><b>Article ID</b></label>
