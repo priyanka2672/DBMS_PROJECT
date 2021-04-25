@@ -27,6 +27,9 @@
           <li class="nav-item">
             <a class="nav-link" id="logs-tab" data-toggle="tab"  role="tab" href="#log" aria-controls="contact" aria-selected="false">LOGS Table</a>
           </li>
+          <div class="form-group">
+          <a href="index.html" onclick="alert('Successfully Logged out!')"class="btn btn-lg active" style="background-color:rgb(75, 9, 9);color:rgb(255, 255, 255);font-weight:bolder;float:right"role="button" aria-pressed="true">Log Out</a>
+        </div>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="artist" role="tabpanel" aria-labelledby="home-tab">
