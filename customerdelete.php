@@ -1,20 +1,20 @@
 <?php
 // php code to Delete data from mysql database 
 
-if (isset($_POST['artist_id'])) {
+if (isset($_POST['customer_id'])) {
     $hostname = "localhost";
     $username = "root";
     $password = "";
     $databaseName = "AG";
 
     // get id to delete
-    $id = $_POST['artist_id'];
+    $id = $_POST['customer_id'];
 
     // connect to mysql
     $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
     // mysql delete query 
-    $query = "DELETE FROM `artist` WHERE `Artist_ID` = $id ";
+    $query = "DELETE FROM `customer` WHERE `Customer_ID` = $id ";
 
     $result = mysqli_query($connect, $query);
 
@@ -38,7 +38,7 @@ if (isset($_POST['artist_id'])) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Delete Artist Record</title>
+    <title>Delete Customer Record</title>
     <style>
         h1 {
             padding: 20px;
@@ -53,10 +53,6 @@ if (isset($_POST['artist_id'])) {
             width: 25%;
             margin: 20px auto;
         }
-
-        form .mybtn {
-            margin: auto 20px;
-        }
     </style>
 </head>
 
@@ -64,11 +60,11 @@ if (isset($_POST['artist_id'])) {
     <h1>Enter the necessary details</h1>
     <form>
         <div class="form-group">
-            <label for="artist_id"><b>Artist ID</b></label>
-            <input type="text" class="form-control" name="artist_id" aria-describedby="emailHelp" placeholder="Enter artist ID of record to be deleted">
+            <label for="customer_id"><b>Customer ID</b></label>
+            <input type="text" class="form-control" name="customer_id" aria-describedby="emailHelp" placeholder="Enter Customer ID of record to be deleted">
         </div>
 
-        <button type="submit mybtn" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
     <!-- Optional JavaScript -->
