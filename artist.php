@@ -48,25 +48,26 @@ mysqli_close($conn);
   </head>
   <body>
     <h1>Enter the necessary details</h1>
+    <div class="myform">
     <form name="artist_add" method="POST" action="">
         <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="artist_id">Artist ID</label>
-            <input type="number" class="form-control" name="artist_id" placeholder="First Name">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="fname">First Name</label>
-            <input type="text" class="form-control" name="artist_fname" placeholder="First Name">
-          </div>
+            <label>Artist ID</label>
+            <input type="number" class="form-control" name="artist_id" id="artist_id" placeholder="First Name" required>
         </div>
+        <div class="form-group col-md-6">
+            <label>First Name</label>
+            <input type="text" class="form-control"  id="artist_fname" name="artist_fname" placeholder="First Name">
+        </div>
+      </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="lname">Last Name</label>
-                <input type="text" class="form-control" name="artist_lname" placeholder="Last Name">
+                <label>Last Name</label>
+                <input type="text" class="form-control"  id="artist_lname" name="artist_lname" placeholder="Last Name">
             </div>
             <div class="form-group col-md-6">
-                <label for="article_style">Article style</label>
-                <select name="article_style" class="form-control">
+                <label>Article style</label>
+                <select name="article_style" id="article_style" class="form-control">
                     <option selected>Choose...</option>
                     <option value="Painting">Painting</option>
                     <option value="Sketching">Sketching</option>
@@ -79,16 +80,16 @@ mysqli_close($conn);
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="Phone">Phone Number</label>
-            <input type="number" class="form-control" name="Phone" placeholder="i.e +91...">
+            <label>Phone Number</label>
+            <input type="number" class="form-control" id="Phone" name="Phone" placeholder="i.e +91...">
           </div>
           <div class="form-group col-md-6">
-            <label for="Address">Address</label>
-            <input type="text" class="form-control" name="Address">
+            <label>Address</label>
+            <input type="text" class="form-control" name="Address" id="Address">
           </div>
         </div>
         
-        <button type="submit" name ="submit"class="btn" style="background-color:rgb(119, 32, 32)" onclick="return myfunc()" >Add Data</button>
+        <button type="submit" name ="submit" class="btn" style="background-color:rgb(119, 32, 32)" onclick="myfunc()" >Add Data</button>
     </form>
     <script>
         function myfunc() {

@@ -14,8 +14,9 @@ $customer_id =  $_POST['customer_id'];
 $bill_amount= $_POST['bill_amount'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
+$customer_pass = $_POST['customer_pass'];
 
-  $sql = "INSERT INTO customer VALUES ( '$customer_id','$bill_amount', '$phone', '$address')";
+$sql = "INSERT INTO `customer`(`Customer_ID`, `Customer_pass`, `Bill_amount`, `Phone`, `Address`) VALUES ('$customer_id','$customer_pass','$bill_amount','$phone','$address')";
 
 // Attempt insert query execution
 
@@ -46,29 +47,35 @@ mysqli_close($conn);
   </head>
   <body>
     <h1>Enter the necessary details</h1>
+    <div class="myform">
     <form name="customer_add" method="POST" action="">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="customer_id">Customer ID</label>
-            <input type="number" class="form-control" name="customer_id" placeholder="Customer Id" required>
+            <label>Customer ID</label>
+            <input type="number" class="form-control" id="customer_id" name="customer_id" placeholder="Customer Id" required>
           </div>
           <div class="form-group col-md-6">
-            <label for="customer_amt">Amount Invested</label>
-            <input type="number" class="form-control" name="bill_amount" placeholder="Amount in Rupees">
+            <label>Amount Invested</label>
+            <input type="number" class="form-control" id="bill_amount" name="bill_amount" placeholder="Amount in Rupees">
           </div>
         </div>
+
         <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="customer_phone">Phone Number</label>
-              <input type="number" class="form-control" name="phone" placeholder="i.e +91...">
+              <label>Phone Number</label>
+              <input type="number" class="form-control" id="phone" name="phone" placeholder="i.e +91...">
             </div>
             <div class="form-group col-md-6">
-              <label for="customer_address">Address</label>
-              <input type="text" class="form-control" name="address">
+              <label>Address</label>
+              <input type="text" class="form-control" id="address" name="address">
+            </div>
+	          <div class="form-group col-md-6">
+              <label>Customer Pass</label>
+              <input type="text" class="form-control"  id="customer_pass" name="customer_pass" placeholder="Creat Password for Customer">
             </div>
         </div>
-        
-        <button type="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc4()">Submit</button>
+
+        <button type="submit" name="submit" class="btn" style="background-color:rgb(119, 32, 32)" onclick="myfunc4()">Submit</button>
     </form>
     <script>
         function myfunc4() {
@@ -77,9 +84,8 @@ mysqli_close($conn);
                 alert("Customer ID must be filled out");
                 return false;
             }
-        }
+            }
     </script>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -14,12 +14,13 @@ $Article_ID =  $_POST['Article_ID'];
 $Artist_ID = $_POST['Artist_ID'];
 $Event_ID =$_POST['Event_ID'];
 $Article_style = $_POST['Article_style'];
+$Article_title = $_POST['Article_title'];
 $Price =  $_POST['Price'];
-$Date_Arrival = date('Y-m-d', (strtotime($_POST['Date_Arrival'])));
+$Date_Arrival = $_POST['Date_Arrival'];
 $Sold =  $_POST['Sold'];
 
 
-  $sql = "INSERT INTO article  VALUES ( '$Article_ID','$Artist_ID', '$Event_ID', '$Article_style', '$Price','$Date_Arrival', '$Sold')";
+  $sql = "INSERT INTO `article`(`Article_ID`, `Artist_ID`, `Event_ID`, `Article_style`, `Article_title`, `Price`, `Date_Arrival`, `sold`) VALUES ('$Article_ID','$Artist_ID','$Event_ID','$Article_style','$Article_title','$Price','$Date_Arrival','$Sold')";
 
 // Attempt insert query execution
 
@@ -53,22 +54,22 @@ mysqli_close($conn);
     <form name="article_add" method="POST", action="">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="article_id">Article ID</label>
-            <input type="text" class="form-control" name="Article_ID" placeholder="Article Id" required>
+            <label>Article ID</label>
+            <input type="text" class="form-control"  id="Article_ID" name="Article_ID" placeholder="Article Id" required>
           </div>
           <div class="form-group col-md-6">
-            <label for="artist_id">Artist ID</label>
-            <input type="text" class="form-control" name="Artist_ID" placeholder="Artist ID">
+            <label>Artist ID</label>
+            <input type="text" class="form-control"  id="Artist_ID" name="Artist_ID" placeholder="Artist ID">
           </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="event_id">Event ID</label>
-                <input type="text" class="form-control" name="Event_ID" placeholder="Event ID">
+                <label>Event ID</label>
+                <input type="text" class="form-control" id="Event_ID" name="Event_ID" placeholder="Event ID">
             </div>
             <div class="form-group col-md-6">
-                <label for="articlestyle">Article Style</label>
-                <select name="Article_style" class="form-control">
+                <label>Article Style</label>
+                <select  id="Article_style" name="Article_style" class="form-control">
                     <option selected>Choose...</option>
                     <option value="Painting">Painting</option>
                     <option value="Sketching">Sketching</option>
@@ -80,23 +81,29 @@ mysqli_close($conn);
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="article_price">Price</label>
-            <input type="number" class="form-control" name="Price">
+            <label>Price</label>
+            <input type="number" class="form-control" name="Price" id="Price">
           </div>
           <div class="form-group col-md-4">
-            <label for="article_doa">Date of Arrival</label>
-            <input type="date" class="form-control" name="Date_Arrival">
+            <label>Date of Arrival</label>
+            <input type="date" class="form-control" name="Date_Arrival" id="Date_Arrival">
           </div>
           <div class="form-group col-md-4">
              <label for="article_sold">SOLD</label>
-                <select name="Sold" class="form-control">
+                <select name="Sold"  id="Sold" class="form-control">
                     <option selected>Choose...</option>
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
+                    <option value=1>YES</option>
+                    <option value=0>NO</option>
                 </select>
             </div>
         </div>
-        <button type="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc1()">Submit</button>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+                <label>Article Title</label>
+                <input type="text" class="form-control" id="Article_title" name="Article_title" placeholder="Article Title">
+          </div>    
+        </div>
+        <button type="submit" name="submit" class="btn" style="background-color:rgb(119, 32, 32)"onclick="myfunc1()">Submit</button>
     </form>
     <script>
         function myfunc1() {
