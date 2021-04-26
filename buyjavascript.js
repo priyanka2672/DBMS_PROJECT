@@ -85,3 +85,51 @@ function myjavas2()
         }
     }
 }
+function myjavas5()
+{
+     var mine = prompt("Are you sure you want to register for Event 101?Type Yes/No.");    
+        switch(mine)
+        {
+            case "Yes":
+                var fname = prompt("Type in Your full name:");
+                if(fname != null)
+                {
+                    var phone=prompt("Enter your Phone Number");
+                    if(phone != null){
+                        alert("Dear "+ fname +" , you have successfully registered for event 101.");
+                    }
+                }
+                break;
+            case "YES":
+                var fname = prompt("Type in Your full name:");
+                if(fname != null)
+                {
+                    var phone=prompt("Enter your Phone Number");
+                    if(phone != null){
+                        alert("Dear "+ fname +" , you have successfully registered for event 101.");
+                    }
+                }
+                break;
+            case "yes":
+                var fname = prompt("Type in Your full name:");
+                if(fname != null)
+                {
+                    var phone=prompt("Enter your Phone Number");
+                    if(phone != null){
+                        alert("Dear "+ fname +" , you have successfully registered for event 101.");
+                    }
+                }
+                break;
+            case "No":
+                alert("Registration Unsuccessful!");
+                break;
+            case "NO":
+                alert("Registration Unsuccessful!");
+                break;
+            case "no":
+                alert("Registration Unsuccessful!");
+                break;
+            
+        }
+    
+}

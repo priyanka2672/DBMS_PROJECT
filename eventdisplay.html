@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <script src="buyjavascript.js"></script>
     <title>Events</title>
     <style>
         h1{
@@ -32,6 +32,12 @@
       text-align: center;
       font-size:large;
     }
+    .mybtn{
+        display:block;
+        margin:auto;
+        
+        width:100%;
+    }
     </style>
   </head>
   <body>
@@ -51,8 +57,13 @@
         <div class="card-header  eventtitle">Event ID :101</div>
         <div class="card-body">
           <h5 class="card-title">A couple of Indian artists coming together for an exhibition and open minds about the modern and new generation art!</h5>
-          <p class="card-text">Articles on Display:</p>
-          <a href="#" class="btn " style="display:block;margin:auto;color: rgb(119, 32, 32);background-color: rgb(255,255,255);">Register</a>
+          <p class="card-text eventtitle">Articles on Display:</p>
+          <ol>
+            <li>Cups in the Rhythm</li>
+            <li>Abstract Gardens</li>
+            <li>Flowers of Bhudha</li>
+          </ol>
+          <button href="#" onclick="myjavas5()"class="btn mybtn" style="display:block;margin:auto;color: rgb(119, 32, 32);background-color: rgb(255,255,255);">Register</button>
         </div>
       </div>
     </div>
