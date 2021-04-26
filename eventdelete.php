@@ -1,17 +1,21 @@
 <?php
 // php code to Delete data from mysql database 
 
-if (isset($_POST['event_id'])) {
+if (isset($_POST['submit'])) {
     $hostname = "localhost";
     $username = "root";
     $password = "";
-    $databaseName = "AG";
+    $databaseName = "art_gallery";
 
     // get id to delete
     $id = $_POST['event_id'];
 
     // connect to mysql
     $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+    if(mysqli_connect_errno()) {  
+        die("Failed to connect with MySQL: ". mysqli_connect_error());  
+    }
 
     // mysql delete query 
     $query = "DELETE FROM `event` WHERE `Event_ID` = $id ";
@@ -68,13 +72,13 @@ if (isset($_POST['event_id'])) {
           </div>
         </div>
       </h1>
-    <form>
+    <form method="POST" action="">
         <div class="form-group">
             <label for="event_id"><b>Event ID</b></label>
-            <input type="text" class="form-control" name="event_id" aria-describedby="emailHelp" placeholder="Enter Event ID of record to be deleted">
+            <input type="text" class="form-control"  id="event_id" name="event_id" aria-describedby="emailHelp" placeholder="Enter Event ID of record to be deleted">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
     </form>
 
     <!-- Optional JavaScript -->
