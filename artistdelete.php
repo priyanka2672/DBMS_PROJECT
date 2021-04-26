@@ -19,6 +19,7 @@ if (isset($_POST['submit'])) {
 
     // mysql delete query 
     $query = "DELETE FROM `artist` WHERE `Artist_ID` = $id ";
+    
 
     $result = mysqli_query($connect, $query);
 

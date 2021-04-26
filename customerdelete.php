@@ -1,35 +1,33 @@
 <?php
-// php code to Delete data from mysql database 
+/* Attempt MySQL server connection.*/
+$conn = mysqli_connect("localhost", "root", "", "art_gallery");
+ 
+// Check connection
+if($conn === false)
+{
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ if(isset($_POST['submit']))
+ {
+// Escape user inputs for security
+$id =  $_POST['customer_id'];
 
-if (isset($_POST['submit'])) {
-    $hostname = "localhost";
-    $username = "root";
-    $password = "";
-    $databaseName = "art_gallery";
-
-    // get id to delete
-    $id = $_POST['customer_id'];
-
-    // connect to mysql
-    $connect = mysqli_connect($hostname, $username, $password, $databaseName);
-    if(mysqli_connect_errno()) {  
-        die("Failed to connect with MySQL: ". mysqli_connect_error());  
-    }
-
-    // mysql delete query 
-    $query = "DELETE FROM `customer` WHERE `Customer_ID` = $id ";
-
-    $result = mysqli_query($connect, $query);
-
-    if ($result) {
-        echo '<script type="text/javascript"> alert("Record successfully Deleted!") </script>';
-    } else {
-        echo '<script type="text/javascript"> alert("Could not delete! Try again!") </script>';
-    }
-    mysqli_close($connect);
+ 
+// Attempt insert query execution
+$sql = "DELETE FROM `customer` WHERE `Customer_ID` = $id";
+if(mysqli_query($conn, $sql))
+{
+  echo '<script type="text/javascript"> alert("Record successfully deleted") </script>';
+} 
+else
+{
+  echo '<script type="text/javascript"> alert("Could not delete! Try again!") </script>'; 
+}
+ 
+// Close connection
+mysqli_close($conn);
 }
 ?>
-
 <!doctype html>
 <html lang="en">
 
