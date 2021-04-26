@@ -7,22 +7,75 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="artist.css">
+    
     <title>Artist Search</title>
+    <style>
+      body {
+          margin: 0;
+        }
+        
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 15px;
+          width: 25%;
+          background-color: #f1f1f1;
+          position: fixed;
+          height: 100%;
+          overflow: auto;
+        }
+        
+        li a {
+          display: block;
+          color: #000;
+          padding: 8px 16px;
+          text-decoration: none;
+          border-radius: 10px;
+          margin-bottom: 5px;
+        }
+        
+        li a.active {
+          background-color: rgb(119, 32, 32);
+          color: white;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: #555;
+          color: white;
+          text-decoration: none;
+        }
+        .mytable{
+            margin:20px auto;
+            padding-top:20px;
+            border-radius: 10px;
+            border-color:rgb(255, 255, 255);
+            max-width:1100px;
+        }
+        .mybtn{
+            display:block;
+            margin:20px auto;
+            max-width:100px;
+            background-color:rgb(119, 32, 32);
+            border-color: rgb(119, 32, 32);
+            font-weight:bolder;
+        }
+                 
+      </style>
   </head>
   <body>
-    <h1>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-          <a href="customerhome.html" class="btn btn-lg active" style="background-color:rgb(75, 9, 9);color:rgb(255, 255, 255);font-weight:bolder;"role="button" aria-pressed="true">Home</a>
-          </div>
-          <div class="form-group col-md-8">Art Gallery </div>
-          <div class="form-group col-md-2">
-            <a href="index.html" onclick="alert('Successfully Logged out!')"class="btn btn-lg active" style="background-color:rgb(75, 9, 9);color:rgb(255, 255, 255);font-weight:bolder;"role="button" aria-pressed="true">Log Out</a>
-          </div>
-        </div>
-      </h1>
-      <div style="margin-left:25%;padding:50px 30px;height:1000px;" >
+  <ul>
+          <li><a  href="customerhome.html">The Art Gallery</a></li>
+          <li><a href="artdisplay.html">Articles</a></li>
+          <li><a href="eventdisplay.html">Events</a></li>
+          <li><a class="active" href="artistsearch.php">Search By Artist</a></li>
+          <li><a href="eventsearch.php">Search By Event</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html" onclick="alert('Successfully Logged out!')"role="button" aria-pressed="true">Log Out</a></li>
+        </ul>
+        
+        <div style="margin-left:25%;padding:50px 30px;height:1000px;" class="custcontent">
+      
         <form method="POST" action="">
             <label>Enter First Name of the Artist  to be Searched</label>
             <input type="text" class="form-control" name="artist_name" placeholder="Artist First Name">
